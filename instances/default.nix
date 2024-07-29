@@ -91,8 +91,8 @@
     plugins.dynmap = {
         name = "dynmap.jar";
         versions."1.21" = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/fRQREgAc/versions/ipBhc6VW/Dynmap-3.7-beta-6-fabric-1.21.jar";
-            sha256 = "sha256-zcNNfJkuQTW3WCh4peU94P7KasGNBoma4FyrOH0BYfw=";
+            url = "https://cdn.modrinth.com/data/fRQREgAc/versions/QtTWJjW6/Dynmap-3.7-beta-6-spigot.jar";
+            sha256 = "sha256-c1gWhb/JBZ8aD5fWE7vqVOhqGwlPAi08aZ82SIRSU94=";
         };
     };
 }
