@@ -52,7 +52,7 @@
                     config.minecraft.port
                     22
                 ];
-                networking.hostName = "nix-papermc";
+                networking.hostName = "nix-velocity";
                 services.openssh.enable = true;
                 services.openssh.settings.PermitRootLogin = "yes";
 
