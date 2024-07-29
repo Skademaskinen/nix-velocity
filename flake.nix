@@ -65,6 +65,7 @@
             }).config.system.build.vm;
         };
         
+        nixosModules.default = import ./.;
         mc-cmd = config: import ./utils/mc-cmd.nix {inherit pkgs config;};
         instances = import ./instances { inherit pkgs; };
     };
