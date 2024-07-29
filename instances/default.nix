@@ -54,10 +54,17 @@
         };
     };
     mods.immersive-portals = {
-        name = "immersive-portals";
+        name = "immersive-portals.jar";
         versions."1.20.1" = pkgs.fetchurl {
             url = "https://cdn.modrinth.com/data/zJpHMkdD/versions/155jtqJi/immersive-portals-3.3.9-mc1.20.1-fabric.jar";
             sha256 = "sha256-vrNfdLmLU3t7V3Q7aFT88ZAAqabZP2EfZJQBOD5mAE4=";
+        };
+    };
+    mods.cross-stitch = {
+        name = "cross-stitch.jar";
+        versions."1.20.1" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/YkOyn1Pn/versions/dJioNlO8/crossstitch-0.1.6.jar";
+            sha256 = "sha256-z1qsXFV5sc6xsr0loV8eLcySJvV2cBY60fhBsvkFuC4=";
         };
     };
     plugins.decent-holograms = {
