@@ -93,7 +93,7 @@ in with tools; {
                                 default = {};
                             };
                         });
-                        default = [ instances.fabric-proxy-lite ];
+                        default = [ instances.mods.fabric-proxy-lite ];
                     };
                     jars = {
                         paper = lib.mkOption {
