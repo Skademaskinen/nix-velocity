@@ -23,10 +23,17 @@ This is an isolation of my original minecraft setup, my thought is that someone 
                 ];
                 # config options, the root level ones are placed into server.properties, spigot options are placed in spigot.yml etc.
                 # supported configs are spigot.yml, bukkit.yml, paper-global.yml, paper-world-defaults.yml and server.properties
-                server-port = 25566; # has to be unique per server, defaults to the server name's index in `builtins.attrNames cfg.servers`
+                server-port = 25566; # has to be unique per server instance
                 gamemode = "adventure";
                 spigot.players.disable-saving = true;
             };
         };
     };
+
 ```
+This repo also contains a flake to run a test server in a virtual machine
+
+## Sources
+
+[Velocity Documentation](https://docs.papermc.io/velocity)
+[Papermc Documentation](https://docs.papermc.io/paper)
