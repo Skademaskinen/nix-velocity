@@ -6,5 +6,5 @@
     echo "Service: $1"
     echo "Command: $2"
 
-    echo "$2" > ${config.minecraft.prefix}/minecraft/sockets/$1.stdin
+    echo "$2" > ${config.minecraft.prefix}/sockets/$1.stdin
 ''
