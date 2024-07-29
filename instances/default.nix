@@ -48,9 +48,16 @@
     };
     mods.worldedit = {
         name = "worldedit.jar";
-        version."1.21" = pkgs.fetchurl {
+        versions."1.21" = pkgs.fetchurl {
             url = "https://cdn.modrinth.com/data/1u6JkXh5/versions/srWerknn/worldedit-mod-7.3.5.jar";
             sha256 = "sha256-dtJQ9DMZ2RqVlIzUwHRtydFdXpV3c7hDIZhB0ftsn3I=";
+        };
+    };
+    mods.immersive-portals = {
+        name = "immersive-portals";
+        versions."1.20.1" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/zJpHMkdD/versions/155jtqJi/immersive-portals-3.3.9-mc1.20.1-fabric.jar";
+            sha256 = "sha256-vrNfdLmLU3t7V3Q7aFT88ZAAqabZP2EfZJQBOD5mAE4=";
         };
     };
     plugins.decent-holograms = {

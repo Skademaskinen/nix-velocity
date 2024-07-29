@@ -63,6 +63,8 @@
                     cfg
                 ];
             }).config.system.build.vm;
+
+            test-instances = import ./utils/test-instances.nix {inherit pkgs instances;};
         };
         
         nixosModules.default = import ./.;
