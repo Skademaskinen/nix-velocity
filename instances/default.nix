@@ -88,4 +88,11 @@
             sha256 = "sha256-xMIsPMKop0pNWThOFsiA0TTrwEotN4FYkpy+MF8ctSA=";
         };
     };
+    plugins.dynmap = {
+        name = "dynmap.jar";
+        versions."1.21" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/fRQREgAc/versions/ipBhc6VW/Dynmap-3.7-beta-6-fabric-1.21.jar";
+            sha256 = "sha256-zcNNfJkuQTW3WCh4peU94P7KasGNBoma4FyrOH0BYfw=";
+        };
+    };
 }
