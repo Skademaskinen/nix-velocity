@@ -32,7 +32,7 @@
                         };
                     };
                     minecraft.port = 25565;
-                    users.users.root.packages = with pkgs; [nmap htop (import ./utils/mc-cmd.nix {inherit config pkgs lib;})];
+                    users.users.root.packages = with pkgs; [nmap htop (mc-cmd config)];
                     users.users.root.password = "root";
                     users.users.root.shell = pkgs.zsh;
                     programs.zsh.enable = true;
