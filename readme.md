@@ -2,6 +2,7 @@
 This is an isolation of my original minecraft setup, my thought is that someone else would probably also be interested in a hassle-free velocity setup. The options are defined like:
 
 ```nix
+    # assumes nix-velocity as flake input
     minecraft = {
         icon = ./files/icon.png; # has to be 64x64
         # relevant velocity settings can also be set here
