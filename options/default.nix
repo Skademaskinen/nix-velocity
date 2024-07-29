@@ -81,7 +81,7 @@ in with tools; {
                                 default = {};
                             };
                         });
-                        default = {};
+                        default = [];
                     };
                     mods = lib.mkOption {
                         type = listOf (submodule {
