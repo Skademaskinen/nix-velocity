@@ -17,7 +17,7 @@ This is an isolation of my original minecraft setup, my thought is that someone 
                 version = "1.21";
                 type = "paper"; # can also be fabric, replace the plugins below with a mods attr instead
                 # plugins are just a set with a name field and a versions field, versions is accessed with server.version, and should evaluate to a path type
-                plugins = with import ./instances { inherit pkgs; }; [
+                plugins = with (import ./instances { inherit pkgs; }).plugins; [
                     decent-holograms
                     iportal-updated
                 ];

@@ -3,22 +3,21 @@
 
     inputs = {
         nixpkgs.url = "nixpkgs/nixos-24.05";
+        nix-velocity.url = "github:Mast3rwaf1z/nix-velocity";
     };
 
-    outputs = { self, nixpkgs }: let
+    outputs = { self, nixpkgs, nix-velocity }: let
         system = "x86_64-linux";
         pkgs = import nixpkgs {inherit system;};
     in {
         packages.${system}.default = let
-            cfg = {config, pkgs, lib, ...}: let
-                instances = import ./instances { inherit pkgs; };
-            in {
+            cfg = {config, pkgs, lib, ...}: {
                 system.stateVersion = "24.05";
                 minecraft.servers = {
                     fabric = {
                         server-port = 25566;
                         type = "fabric";
-                        mods = with instances.mods; [
+                        mods = with nix-velocity.instances.mods; [
                             servux
                             fabric-proxy-lite
                         ];
@@ -26,7 +25,7 @@
                     paper = {
                         server-port = 25567;
                         type = "paper";
-                        plugins = with instances.plugins; [
+                        plugins = with nix-velocity.instances.plugins; [
                             decent-holograms
                             iportal-updated
                         ];
@@ -64,5 +63,8 @@
                 cfg
             ];
         }).config.system.build.vm;
+        
+        instances = import ./instances { inherit pkgs; };
     };
+
 }
