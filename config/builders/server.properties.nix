@@ -1,4 +1,4 @@
-{pkgs, lib, ...}: let
+{pkgs, lib, config, ...}: let
     utils = import ../../utils { inherit pkgs lib; };
 in opts: with opts; with utils; pkgs.writeText "server.properties" ''
     accepts-transfers=${parseValue accepts-transfers}
@@ -45,7 +45,12 @@ in opts: with opts; with utils; pkgs.writeText "server.properties" ''
     region-file-compression=${region-file-compression}
     require-resource-pack=${parseValue require-resource-pack}
     server-ip=${server-ip}
-    server-port=${parseValue server-port}
+    server-port=${
+        if server-port == null then
+            parseValue (config.minecraft.port + 1 + (getIndex opts.name (builtins.attrNames config.minecraft.servers)))
+        else
+            parseValue server-port
+    }
     simulation-distance=${parseValue simulation-distance}
     spawn-animals=${parseValue spawn-animals}
     spawn-monsters=${parseValue spawn-monsters}

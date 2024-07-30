@@ -15,7 +15,6 @@
                     system.stateVersion = "24.05";
                     minecraft.servers = {
                         fabric = {
-                            server-port = 25566;
                             type = "fabric";
                             mods = with instances.mods; [
                                 servux
@@ -23,7 +22,6 @@
                             ];
                         };
                         paper = {
-                            server-port = 25567;
                             type = "paper";
                             plugins = with instances.plugins; [
                                 decent-holograms

@@ -1,4 +1,4 @@
-{pkgs, lib, ...}: with lib.types; {
+{pkgs, lib, ...}: with lib.types; rec {
     # reducing character count...
     tbool = lib.mkOption {
         type = bool;
@@ -50,4 +50,11 @@
                 "${makeIndent indent}${name}: ${builtins.toString value}"
             )) object));
     in _nix2yml 0;
+
+    getIndex = x: xs: if xs == [] then
+        -1
+    else if (builtins.elemAt xs 0 == x) then
+        0
+    else
+        1 + (getIndex x (lib.sublist 1 (builtins.length xs) xs));
 }

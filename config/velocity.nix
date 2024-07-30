@@ -31,7 +31,10 @@ EOF
 
             cat > $out/share/populate-servers.py << EOF
 names = "${parseValue (builtins.attrNames cfg.servers)}".split(" ")
-ports = [int(p) for p in "${parseValue (map (s: s.server-port) (builtins.attrValues cfg.servers))}".split(" ")]
+ports = [int(p) for p in "${parseValue (builtins.attrValues (builtins.mapAttrs (name: value: if value.server-port == null then
+    parseValue (config.minecraft.port + 1 + (getIndex name (builtins.attrNames config.minecraft.servers)))
+else
+    parseValue value.server-port) cfg.servers))}".split(" ")]
 
 with open("$out/share/velocity.toml", "a") as file:
     for name, port in zip(names, ports):

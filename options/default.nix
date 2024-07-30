@@ -51,7 +51,10 @@ in with tools; {
                     region-file-compression = stropt "deflate";
                     require-resource-pack = fbool;
                     server-ip = stropt "";
-                    server-port = intopt 25566;
+                    server-port = lib.mkOption {
+                        type = nullOr int;
+                        default = null;
+                    };
                     simulation-distance = intopt 10;
                     spawn-animals = tbool;
                     spawn-monsters = tbool;

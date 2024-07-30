@@ -9,7 +9,7 @@
             echo "eula=true" > $out/share/eula.txt
 
 
-            cp ${(import ./builders/server.properties.nix { inherit pkgs lib; }) server} $out/share/server.properties
+            cp ${(import ./builders/server.properties.nix { inherit pkgs lib config; }) server} $out/share/server.properties
 
             cp ${(import ./builders/paper-global.yml.nix { inherit pkgs lib; }) server.paper-global} $out/share/paper-global.yml
 
