@@ -108,6 +108,10 @@ in with tools; {
                             default = instances.fabric;
                         };
                     };
+                    extra-configs = lib.mkOption {
+                        type = attrsOf str;
+                        default = {};
+                    };
                 };
             });
             default = {};
@@ -159,5 +163,9 @@ in with tools; {
         };
         prefix = stropt "/minecraft";
         host = stropt "localhost";
+        eula = lib.mkOption {
+            type = bool;
+            default = false;
+        };
     };
 }
