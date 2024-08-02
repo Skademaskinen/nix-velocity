@@ -38,7 +38,7 @@
                     chmod +rw ${cfg.prefix}/${server.name}/${name}
                 '') server.extra-configs))}
 
-                ${pkgs.jdk21}/bin/java -jar ${server.jars.paper.versions.${server.version}}
+                ${pkgs.jdk21}/bin/java ${builtins.concatStringsSep " " server.jvm-args} -jar ${server.jars.paper.versions.${server.version}} 
 EOF
             chmod +x $out/bin/paper-wrapped
         '';

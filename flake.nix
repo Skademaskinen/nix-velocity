@@ -22,6 +22,10 @@
                                 servux
                                 fabric-proxy-lite
                             ];
+                            jvm-args = [
+                                "-Xms2024M"
+                                "-Xmx2024M"
+                            ];
                         };
                         paper = {
                             type = "paper";

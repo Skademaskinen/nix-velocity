@@ -112,6 +112,10 @@ in with tools; {
                         type = attrsOf str;
                         default = {};
                     };
+                    jvm-args = lib.mkOption {
+                        type = listOf str;
+                        default = [];
+                    };
                 };
             });
             default = {};
