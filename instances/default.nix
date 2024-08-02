@@ -67,6 +67,13 @@
             sha256 = "sha256-z1qsXFV5sc6xsr0loV8eLcySJvV2cBY60fhBsvkFuC4=";
         };
     };
+    mods.create = {
+        name = "create.jar";
+        versions."1.20.1" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/Xbc0uyRg/versions/h2HgGyvA/create-fabric-0.5.1-f-build.1417%2Bmc1.20.1.jar";
+            sha256 = "sha256-EahQ02ibR3HV+nBf+n3XEYJ8abcQgpVll+XQUUccwe4=";
+        };
+    };
     plugins.decent-holograms = {
         name = "decentholograms.jar";
         versions."1.21" = pkgs.fetchurl {
