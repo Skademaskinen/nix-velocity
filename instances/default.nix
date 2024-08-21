@@ -74,6 +74,13 @@
             sha256 = "sha256-EahQ02ibR3HV+nBf+n3XEYJ8abcQgpVll+XQUUccwe4=";
         };
     };
+    mods.dynmap = {
+        name = "dynmap.jar";
+        versions."1.21" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/fRQREgAc/versions/ipBhc6VW/Dynmap-3.7-beta-6-fabric-1.21.jar";
+            sha256 = "sha256-zcNNfJkuQTW3WCh4peU94P7KasGNBoma4FyrOH0BYfw=";
+        };
+    };
     plugins.decent-holograms = {
         name = "decentholograms.jar";
         versions."1.21" = pkgs.fetchurl {
