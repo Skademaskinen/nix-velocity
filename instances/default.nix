@@ -34,6 +34,10 @@
             url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/P7uGFii0/fabric-api-0.92.2%2B1.20.1.jar";
             sha256 = "sha256-RQD4RMRVc9A51o05Y8mIWqnedxJnAhbgrT5d8WxncPw=";
         };
+        versions."1.21" = pkgs.fetchurl {
+            url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/oGwyXeEI/fabric-api-0.102.0%2B1.21.jar";
+            sha256 = "sha256-fsDloR53lX/h7QMoSHkhqCEbt+rOFCmM10Y1vsYaPyY=";
+        };
     };
     mods.servux = {
         name = "servux.jar";
