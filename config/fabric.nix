@@ -1,5 +1,5 @@
 {config, pkgs, lib, ...}: let
-    cfg = config.minecraft;
+    cfg = config.services.minecraft;
 
     fabric-wrapped = server: pkgs.stdenv.mkDerivation {
         name = "paper-wrapped-${server.name}";

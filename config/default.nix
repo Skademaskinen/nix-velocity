@@ -1,5 +1,5 @@
 {config, pkgs, lib, ...}: let
-    cfg = config.minecraft;
+    cfg = config.services.minecraft;
     utils = import ../utils { inherit pkgs lib;};
 
     paper-wrapped = import ./paper.nix { inherit config pkgs lib; };

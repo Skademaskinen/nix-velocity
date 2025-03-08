@@ -106,7 +106,7 @@ in with utils; {
         velocity = {
             enabled = tbool;
             online-mode = tbool;
-            secret = stropt config.minecraft.secret;
+            secret = stropt config.services.minecraft.secret;
         };
     };
     scoreboards = {

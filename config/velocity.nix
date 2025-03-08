@@ -1,5 +1,5 @@
 {config, pkgs, lib, ...}: let 
-    cfg = config.minecraft;
+    cfg = config.services.minecraft;
     utils = import ../utils { inherit pkgs lib; };
     
     velocity = pkgs.fetchurl {
@@ -32,7 +32,7 @@ EOF
             cat > $out/share/populate-servers.py << EOF
 names = "${parseValue (builtins.attrNames cfg.servers)}".split(" ")
 ports = [int(p) for p in "${parseValue (builtins.attrValues (builtins.mapAttrs (name: value: if value.server-port == null then
-    parseValue (config.minecraft.port + 1 + (getIndex name (builtins.attrNames config.minecraft.servers)))
+    parseValue (cfg.port + 1 + (getIndex name (builtins.attrNames cfg.servers)))
 else
     parseValue value.server-port) cfg.servers))}".split(" ")]
 

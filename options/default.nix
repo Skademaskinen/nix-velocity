@@ -3,7 +3,7 @@
     tools = import ../utils { inherit pkgs lib; };
     instances = import ../instances {inherit pkgs;};
 in with tools; {
-    options.minecraft = with lib.types; {
+    options.services.minecraft = with lib.types; {
         servers = lib.mkOption {
             type = attrsOf (submodule {
                 options = {
@@ -120,7 +120,7 @@ in with tools; {
             });
             default = {};
         };
-        fallback = stropt (builtins.elemAt (builtins.attrNames config.minecraft.servers) 0);
+        fallback = stropt (builtins.elemAt (builtins.attrNames config.services.minecraft.servers) 0);
         secret = stropt "velocity-secret";
         icon = lib.mkOption {
             type = nullOr path;
