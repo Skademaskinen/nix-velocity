@@ -15,10 +15,10 @@
             default = let
                 cfg = {config, pkgs, lib, ...}: {
                     system.stateVersion = "24.05";
-                    minecraft.servers = {
+                    services.minecraft.servers = {
                         fabric = {
                             type = "fabric";
-                            mods = with instances.mods; [
+                            mods = with config.services.minecraft.instances.mods; [
                                 servux
                                 fabric-proxy-lite
                             ];
@@ -29,7 +29,7 @@
                         };
                         paper = {
                             type = "paper";
-                            plugins = with instances.plugins; [
+                            plugins = with config.services.minecraft.instances.plugins; [
                                 decent-holograms
                                 iportal-updated
                                 dynmap
@@ -39,8 +39,9 @@
                             '';
                         };
                     };
-                    minecraft.port = 25565;
-                    minecraft.eula = true;
+                    services.minecraft.prefix = "/var/opt/minecraft";
+                    services.minecraft.port = 25565;
+                    services.minecraft.eula = true;
 
                     users.users.root.packages = with pkgs; [nmap htop (mc-cmd config)];
                     users.users.root.password = "root";
@@ -51,7 +52,7 @@
                         virtualisation.forwardPorts = [
                             { from = "host"; host.port = 2222; guest.port = 22; }
                             { from = "host"; host.port = web-port; guest.port = web-port; }
-                            { from = "host"; host.port = config.minecraft.port; guest.port = config.minecraft.port; }
+                            { from = "host"; host.port = config.services.minecraft.port; guest.port = config.services.minecraft.port; }
                         ];
                         virtualisation.memorySize = 8192;
                         virtualisation.cores = 4;
