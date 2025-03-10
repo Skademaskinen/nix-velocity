@@ -47,7 +47,7 @@ in opts: with opts; with utils; pkgs.writeText "server.properties" ''
     server-ip=${server-ip}
     server-port=${
         if server-port == null then
-            parseValue (config.minecraft.port + 1 + (getIndex opts.name (builtins.attrNames config.minecraft.servers)))
+            parseValue (config.services.minecraft.port + 1 + (getIndex opts.name (builtins.attrNames config.services.minecraft.servers)))
         else
             parseValue server-port
     }
