@@ -165,11 +165,15 @@ in with tools; {
             type = attrsOf path;
             default = {};
         };
-        prefix = stropt "/minecraft";
+        prefix = stropt "/var/opt/minecraft";
         host = stropt "localhost";
         eula = lib.mkOption {
             type = bool;
             default = false;
+        };
+        instances = lib.mkOption {
+            type = attrs;
+            default = import ../instances { inherit pkgs; };
         };
     };
 }

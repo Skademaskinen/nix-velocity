@@ -33,14 +33,14 @@ in {
                     Type = "oneshot";
                     ExecStart = "${pkgs.bash}/bin/bash ${pkgs.writeScriptBin "minecraft-setup" ''
                         mkdir -p ${cfg.prefix}/{velocity,${builtins.concatStringsSep "," (builtins.attrNames cfg.servers)}}
-                        chown -R minecraft:minecraft ${cfg.prefix}/{velocity,${builtins.concatStringsSep "," (builtins.attrNames cfg.servers)}}
                         mkdir -p ${cfg.prefix}/sockets
+                        chown -R minecraft:minecraft ${cfg.prefix}
                     ''}/bin/minecraft-setup";
                 };
                 wantedBy = ["network-online.target"];
             };
         };
-    in if (utils.attrLength cfg.servers) > 0 then pkgs.lib.mergeAttrs services (builtins.mapAttrs (name: server: {
+    in if (utils.attrLength cfg.servers) > 0 then services // builtins.mapAttrs (name: server: {
         enable = true;
         serviceConfig = {
             User = "minecraft";
@@ -57,7 +57,7 @@ in {
         };
         wantedBy = ["network-online.target"];
         after = ["minecraft-setup.service"];
-    }) cfg.servers) else {};
+    }) cfg.servers else {};
     systemd.sockets = let
         velocity = {
             enable = true;
